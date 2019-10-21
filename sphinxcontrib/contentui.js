@@ -11,12 +11,12 @@ $(function() {
     /**
      * Toggle logic
      */
-    $('.toggle-content').hide()
+    //$('.toggle-content').toggle('400');
     $('.toggle-header').click(function () {
         $(this).toggleClass("open");
         $(this).next('.toggle-content').toggle('400');
     })
-    
+
     /**
      * Dynamic multiple content block.
      */

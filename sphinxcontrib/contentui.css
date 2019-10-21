@@ -80,6 +80,10 @@
     margin-bottom: 20px;
 }
 
+.toggle-default-visible {
+    display: block;
+}
+
 /*
  * tab menu
  */

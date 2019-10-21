@@ -61,12 +61,14 @@ class ContentTabsContainerDirective(Directive):
 
 class ToggleDirective(Directive):
     has_content = True
-    option_spec = {'header': directives.unchanged}
+    option_spec = {'header': directives.unchanged, 'visible': directives.unchanged}
     optional_arguments = 1
 
     def run(self):
         node = nodes.container()
         node['classes'].append('toggle-content')
+        if(self.options.get('visible', None) is not None):
+            node['classes'].append('toggle-default-visible')
 
         par = nodes.container()
         par['classes'].append('toggle-header')
@@ -102,6 +104,6 @@ def setup(app):
     app.add_directive('content-tabs',  ContentTabsDirective)
     app.add_directive('tab-container', ContentTabsContainerDirective)
     app.add_directive('toggle-header', ToggleDirective)
-    
+
     app.connect('builder-inited', add_assets)
     app.connect('build-finished', copy_assets)
